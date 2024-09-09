@@ -15,8 +15,8 @@ app.get('/', (req, res)=>{
 //list all the users
 app.get('/users', (req, res)=>{
     res.json({
-        success: "True",
-        usersNumber: users.length,
+        success: true,
+        numberOfUsers: users.length,
         users
     })
 });
@@ -31,7 +31,7 @@ app.get('/users/:userId', (req, res)=>{
 
     if (!requestedUser) {
         res.json({
-            success: "False",
+            success: false,
             user: "User not found"
         });
         
@@ -39,7 +39,7 @@ app.get('/users/:userId', (req, res)=>{
     }
 
     res.json({
-        success: "True",
+        success: true,
         user: requestedUser
     });
 });
@@ -49,9 +49,9 @@ app.post('/users', (req, res)=>{
 
     users.push(req.body);
     res.json({
-        success: "True",
+        success: true,
         usersNumber: users.length,
-        user: req.body
+        users
     });
 });
 
@@ -66,14 +66,17 @@ app.delete('/users/:userId', (req, res)=>{
 
     if (userIndex === -1) {
         res.json({
-            success: "False",
+            success: false,
             User: "User not found!"
         })
         return
     }
 
     users.splice(userIndex, 1);
-    res.json(users);
+    res.json({
+        success: true,
+        users
+    });
 });
 
 
