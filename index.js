@@ -44,6 +44,37 @@ app.get('/users/:userId', (req, res)=>{
     });
 });
 
+//post a new user
+app.post('/users', (req, res)=>{
+
+    users.push(req.body);
+    res.json({
+        success: "True",
+        usersNumber: users.length,
+        user: req.body
+    });
+});
+
+//delete a selected users
+app.delete('/users/:userId', (req, res)=>{
+    let requestedId = req.params.userId;
+
+    let userToDelete = users.find(user=>
+        user.id === parseInt(requestedId));
+
+    let userIndex = users.indexOf(userToDelete);
+
+    if (userIndex === -1) {
+        res.json({
+            success: "False",
+            User: "User not found!"
+        })
+        return
+    }
+
+    users.splice(userIndex, 1);
+    res.json(users);
+});
 
 
 //declare the port
