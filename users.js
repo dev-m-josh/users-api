@@ -1,65 +1,112 @@
 const users = [
     {
         id: 1,
-        name: "Alice Johnson",
-        email: "alice.johnson@example.com",
-        username: "alicej"
+        name: "John Doe",
+        email: "john.doe@example.com",
+        password: "password123",
+        username: "johndoe"
     },
     {
         id: 2,
-        name: "Bob Smith",
-        email: "bob.smith@example.com",
-        username: "bobsmith"
+        name: "Jane Smith",
+        email: "jane.smith@example.com",
+        password: "123456",
+        username: "janesmith"
     },
     {
         id: 3,
-        name: "Carol White",
-        email: "carol.white@example.com",
-        username: "carolw"
+        name: "Alice Jones",
+        email: "alice.jones@example.com",
+        password: "qwerty",
+        username: "alicejones"
     },
     {
         id: 4,
-        name: "David Brown",
-        email: "david.brown@example.com",
-        username: "davidb"
+        name: "Bob Brown",
+        email: "bob.brown@example.com",
+        password: "abc123",
+        username: "bobbrown"
     },
     {
         id: 5,
-        name: "Eva Green",
-        email: "eva.green@example.com",
-        username: "evagreen"
+        name: "Charlie Davis",
+        email: "charlie.davis@example.com",
+        password: "letmein",
+        username: "charliedavis"
     },
     {
         id: 6,
-        name: "Frank Turner",
-        email: "frank.turner@example.com",
-        username: "frankturner"
+        name: "David Martin",
+        email: "david.martin@example.com",
+        password: "welcome",
+        username: "davidmartin"
     },
     {
         id: 7,
-        name: "Grace Lee",
-        email: "grace.lee@example.com",
-        username: "gracelee"
+        name: "Emily Wilson",
+        email: "emily.wilson@example.com",
+        password: "password1",
+        username: "emilywilson"
     },
     {
         id: 8,
-        name: "Henry Adams",
-        email: "henry.adams@example.com",
-        username: "henryadams"
+        name: "Frank Lee",
+        email: "frank.lee@example.com",
+        password: "admin123",
+        username: "franklee"
     },
     {
         id: 9,
-        name: "Ivy Clark",
-        email: "ivy.clark@example.com",
-        username: "ivyclark"
+        name: "Grace Thompson",
+        email: "grace.thompson@example.com",
+        password: "user2024",
+        username: "gracethompson"
     },
     {
         id: 10,
-        name: "Jack Wilson",
-        email: "jack.wilson@example.com",
-        username: "jackw"
+        name: "Hannah White",
+        email: "hannah.white@example.com",
+        password: "default",
+        username: "hannahwhite"
+    },
+    {
+        id: 11,
+        name: "Ian Jones",
+        email: "ian.jones@example.com",
+        password: "summer2024",
+        username: "ianjones"
+    },
+    {
+        id: 12,
+        name: "Julia Morris",
+        email: "julia.morris@example.com",
+        password: "holiday1",
+        username: "juliammorris"
+    },
+    {
+        id: 13,
+        name: "Kyle Roberts",
+        email: "kyle.roberts@example.com",
+        password: "mypassword",
+        username: "kyleroberts"
+    },
+    {
+        id: 14,
+        name: "Lisa Johnson",
+        email: "lisa.johnson@example.com",
+        password: "secure123",
+        username: "lisajohnson"
+    },
+    {
+        id: 15,
+        name: "Michael Green",
+        email: "michael.green@example.com",
+        password: "123abc",
+        username: "michaelgreen"
     }
 ];
+
+
 
 
 module.exports = users;

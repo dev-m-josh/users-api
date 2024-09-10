@@ -64,6 +64,27 @@ function deleteUserById(req, res){
         success: true,
         users
     });
+};
+
+//get user by password
+function userByPassword(req, res) {
+    let reqPassword = req.params.userPassword;
+    
+    let requestedUser = users.find(user=> 
+        user.password === (reqPassword));
+    
+    if (!requestedUser) {
+        res.json({
+            success: false,
+            user: "User not found"
+        });
+        
+        return
+    }
+    res.json({
+        success: true,
+        user: requestedUser
+    });
 }
 
-module.exports = {getAllUser, getUserById, addNewUser, deleteUserById}
+module.exports = {getAllUser, getUserById, addNewUser, deleteUserById, userByPassword}
