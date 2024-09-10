@@ -7,12 +7,6 @@ app.use(express.json());
 app.use(userRouter);
 
 
-//Home page
-app.get('/', (req, res)=>{
-    res.send("Welcome")
-});
-
-
 //declare the port
 const port = 4000;
 
