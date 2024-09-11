@@ -1,4 +1,4 @@
-const users = require("../users");
+const {users} = require("../users");
 
 //list all users
 function getAllUser (req, res){
@@ -67,24 +67,36 @@ function deleteUserById(req, res){
 };
 
 //get user by password
-function userByPassword(req, res) {
-    let reqPassword = req.params.userPassword;
-    
-    let requestedUser = users.find(user=> 
-        user.password === (reqPassword));
-    
+function loginUser(req, res) {
+    let userDetails = req.body;
+
+    //check username
+    let requestedUser = users.find(user=>
+        user.username === (userDetails.username)
+    );
+
+    // //check requestedUser id
+    // let Id = users.find(user=>
+    //     user.id === (requestedUser.id)
+    // );
+    // console.log(Id)
+        
     if (!requestedUser) {
         res.json({
-            success: false,
-            user: "User not found"
+            user:'User not found'
         });
-        
         return
-    }
+    };
+      if (userDetails.id !== requestedUser.id) {
+        res.json({
+            Message:'User not found!!'
+        });
+    };
+
     res.json({
-        success: true,
-        user: requestedUser
-    });
+        Message:'Logged in succesfully'
+    })
+  
 }
 
-module.exports = {getAllUser, getUserById, addNewUser, deleteUserById, userByPassword}
+module.exports = {getAllUser, getUserById, addNewUser, deleteUserById, loginUser};
