@@ -74,12 +74,6 @@ function loginUser(req, res) {
     let requestedUser = users.find(user=>
         user.username === (userDetails.username)
     );
-
-    // //check requestedUser id
-    // let Id = users.find(user=>
-    //     user.id === (requestedUser.id)
-    // );
-    // console.log(Id)
         
     if (!requestedUser) {
         res.json({
@@ -93,9 +87,15 @@ function loginUser(req, res) {
         });
         return
     };
+    if (userDetails.password !== requestedUser.password) {
+                res.json({
+            Message:'Wrong creditials!'
+        });
+        return
+    }
 
     res.json({
-        Message:'Logged in succesfully'
+        Message:'logged successfully'
     })
   
 }
