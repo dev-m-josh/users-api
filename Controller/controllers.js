@@ -91,6 +91,7 @@ function loginUser(req, res) {
         res.json({
             Message:'User not found!!'
         });
+        return
     };
 
     res.json({
