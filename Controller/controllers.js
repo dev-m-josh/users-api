@@ -81,12 +81,6 @@ function loginUser(req, res) {
         });
         return
     };
-      if (userDetails.id !== requestedUser.id) {
-        res.json({
-            Message:'User not found!!'
-        });
-        return
-    };
     if (userDetails.password !== requestedUser.password) {
                 res.json({
             Message:'Wrong creditials!'
