@@ -109,8 +109,4 @@ const users = [
 
 const bcrypt = require('bcrypt');
 
-
-
-
-
 module.exports = {users: users, bcrypt};

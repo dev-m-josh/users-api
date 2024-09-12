@@ -86,7 +86,12 @@ async function loginUser(req, res) {
         user.username === (userDetails.username)
     );
 
- 
+    if (!requestedUser) {
+        res.json({
+            Message:'User not found'
+        });
+        return
+    };
     try {
          
     //compare the user password and the encrypted password
