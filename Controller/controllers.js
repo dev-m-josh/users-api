@@ -1,4 +1,8 @@
-const {users} = require("../users");
+
+const {users, bcrypt} = require("../users");
+
+{
+const {users, bcrypt} = require("../users");
 
 //list all users
 function getAllUser (req, res){
@@ -37,7 +41,7 @@ function addNewUser(req, res){
     users.push(req.body);
     res.json({
         success: true,
-        usersNumber: users.length,
+        numberOfUsers: users.length,
         users
     });
 }
@@ -65,33 +69,46 @@ function deleteUserById(req, res){
         users
     });
 };
+}
+
+
 
 //get user by password
-function loginUser(req, res) {
+async function loginUser(req, res) {
     let userDetails = req.body;
 
+    //encrypt the password
+    //let encryptPassword = await bcrypt.hash(userDetails.password, 8);
+    //console.log(encryptPassword);
+    
     //check username
     let requestedUser = users.find(user=>
         user.username === (userDetails.username)
     );
-        
-    if (!requestedUser) {
+
+ 
+    try {
+         
+    //compare the user password and the encrypted password
+    let passwordCompare = await bcrypt.compare(userDetails.password, requestedUser.password);
+
+    if (passwordCompare) {
         res.json({
-            user:'User not found'
-        });
-        return
-    };
-    if (userDetails.password !== requestedUser.password) {
-                res.json({
+            Message:'logged successfully'
+        })
+
+    }else{
+        res.json({
             Message:'Wrong creditials!'
         });
-        return
     }
 
-    res.json({
-        Message:'logged successfully'
-    })
-  
-}
+    } catch (error) {
+        res.status(500).json(error,{
+            Message:'Internal sever error'
+        });
+    }
+};
 
-module.exports = {getAllUser, getUserById, addNewUser, deleteUserById, loginUser};
+
+module.exports = { getAllUser, getUserById, addNewUser, deleteUserById, loginUser };

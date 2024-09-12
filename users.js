@@ -1,16 +1,17 @@
+
 const users = [
     {
         id: 1,
         name: "John Doe",
         email: "john.doe@example.com",
-        password: "password123",
+        password: "$2b$08$.cNhRFw6YVAOMe45vcTWUuqFI7IKE5JaPZLBGxUpXSu2hgIZZwdTG",
         username: "johndoe"
     },
     {
         id: 2,
         name: "Jane Smith",
         email: "jane.smith@example.com",
-        password: "123456",
+        password: "$2b$08$fix57QifPve.eiTxJiZ9wOGZqfl4ymiFxThrH9HC6tKcoieFmdLrK",
         username: "janesmith"
     },
     {
@@ -106,8 +107,10 @@ const users = [
     }
 ];
 
+const bcrypt = require('bcrypt');
 
 
 
 
-module.exports = {users: users};
+
+module.exports = {users: users, bcrypt};

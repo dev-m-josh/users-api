@@ -4,8 +4,10 @@ const { userRouter } = require("./Router/routers");
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 
 app.use(userRouter);
+
 
 //declare the port
 const port = 4000;
